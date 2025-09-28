@@ -1,0 +1,52 @@
+// Results
+root@q:/tmp# for i in {1..5}; do 
+  echo "=== RUN $i ==="
+  ./test_dummy_quick
+  sleep 1
+done
+=== RUN 1 ===
+Quick dummy syscall test (10000 calls)...
+=== QUICK TEST RESULTS ===
+Average per call:
+  659.67 ns
+  0.000660 ms
+  0.000000660 sec
+Calls per second: 1515919
+========================
+=== RUN 2 ===
+Quick dummy syscall test (10000 calls)...
+=== QUICK TEST RESULTS ===
+Average per call:
+  586.94 ns
+  0.000587 ms
+  0.000000587 sec
+Calls per second: 1703751
+========================
+=== RUN 3 ===
+Quick dummy syscall test (10000 calls)...
+=== QUICK TEST RESULTS ===
+Average per call:
+  586.60 ns
+  0.000587 ms
+  0.000000587 sec
+Calls per second: 1704739
+========================
+=== RUN 4 ===
+Quick dummy syscall test (10000 calls)...
+=== QUICK TEST RESULTS ===
+Average per call:
+  840.17 ns
+  0.000840 ms
+  0.000000840 sec
+Calls per second: 1190238
+========================
+=== RUN 5 ===
+Quick dummy syscall test (10000 calls)...
+=== QUICK TEST RESULTS ===
+Average per call:
+  613.55 ns
+  0.000614 ms
+  0.000000614 sec
+Calls per second: 1629868
+========================
+root@q:/tmp# 
