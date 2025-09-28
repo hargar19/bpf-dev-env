@@ -1,4 +1,4 @@
-// Results
+// Results for Option 1: syscall profiling from userspace
 root@q:/tmp# for i in {1..5}; do 
   echo "=== RUN $i ==="
   ./test_dummy_quick
@@ -50,3 +50,323 @@ Average per call:
 Calls per second: 1629868
 ========================
 root@q:/tmp# 
+
+
+// Results for Option 2: syscall profiling from kernel
+for i in {1..5}; do 
+  echo "=== RUN $i ==="
+  ./test_dummy_kernel
+  sleep 1
+done
+=== RUN 1 ===
+=== Option B: Kernel-Side Timing Test ===
+Test calls: 100000
+Syscall number: 470
+
+✓ Kernel statistics reset
+✓ Syscall verification passed (returned 0)
+
+Initial kernel stats:
+=== Kernel-Side Dummy Syscall Statistics ===
+Total calls:      1
+Total time:       54 ns (0.000000 ms)
+Average time:
+  54 ns
+  0.000000 ms
+  0.000000054 sec
+Min time:
+  54 ns
+  0.000000 ms
+  0.000000054 sec
+Max time:
+  54 ns
+  0.000000 ms
+  0.000000054 sec
+Calls per second: 18518518 (estimated)
+===========================================
+
+Running 100000 syscalls...
+  Completed 25000 calls...
+  Completed 50000 calls...
+  Completed 75000 calls...
+  Completed 100000 calls...
+✓ Test completed
+
+Final kernel stats:
+=== Kernel-Side Dummy Syscall Statistics ===
+Total calls:      100001
+Total time:       8198396 ns (8.000198 ms)
+Average time:
+  81 ns
+  0.000000 ms
+  0.000000081 sec
+Min time:
+  36 ns
+  0.000000 ms
+  0.000000036 sec
+Max time:
+  2111650 ns
+  2.000111 ms
+  0.002111650 sec
+Calls per second: 12197629 (estimated)
+===========================================
+
+Comparison notes:
+- Kernel timing measures only syscall body execution
+- Excludes user-to-kernel transition overhead
+- More precise than userspace timing
+- Min/Max show timing variance
+=== RUN 2 ===
+=== Option B: Kernel-Side Timing Test ===
+Test calls: 100000
+Syscall number: 470
+
+✓ Kernel statistics reset
+✓ Syscall verification passed (returned 0)
+
+Initial kernel stats:
+=== Kernel-Side Dummy Syscall Statistics ===
+Total calls:      1
+Total time:       57 ns (0.000000 ms)
+Average time:
+  57 ns
+  0.000000 ms
+  0.000000057 sec
+Min time:
+  57 ns
+  0.000000 ms
+  0.000000057 sec
+Max time:
+  57 ns
+  0.000000 ms
+  0.000000057 sec
+Calls per second: 17543859 (estimated)
+===========================================
+
+Running 100000 syscalls...
+  Completed 25000 calls...
+  Completed 50000 calls...
+  Completed 75000 calls...
+  Completed 100000 calls...
+✓ Test completed
+
+Final kernel stats:
+=== Kernel-Side Dummy Syscall Statistics ===
+Total calls:      100001
+Total time:       5425115 ns (5.000425 ms)
+Average time:
+  54 ns
+  0.000000 ms
+  0.000000054 sec
+Min time:
+  37 ns
+  0.000000 ms
+  0.000000037 sec
+Max time:
+  24151 ns
+  0.000024 ms
+  0.000024151 sec
+Calls per second: 18432973 (estimated)
+===========================================
+
+Comparison notes:
+- Kernel timing measures only syscall body execution
+- Excludes user-to-kernel transition overhead
+- More precise than userspace timing
+- Min/Max show timing variance
+=== RUN 3 ===
+=== Option B: Kernel-Side Timing Test ===
+Test calls: 100000
+Syscall number: 470
+
+✓ Kernel statistics reset
+✓ Syscall verification passed (returned 0)
+
+Initial kernel stats:
+=== Kernel-Side Dummy Syscall Statistics ===
+Total calls:      1
+Total time:       128 ns (0.000000 ms)
+Average time:
+  128 ns
+  0.000000 ms
+  0.000000128 sec
+Min time:
+  128 ns
+  0.000000 ms
+  0.000000128 sec
+Max time:
+  128 ns
+  0.000000 ms
+  0.000000128 sec
+Calls per second: 7812500 (estimated)
+===========================================
+
+Running 100000 syscalls...
+  Completed 25000 calls...
+  Completed 50000 calls...
+  Completed 75000 calls...
+  Completed 100000 calls...
+✓ Test completed
+
+Final kernel stats:
+=== Kernel-Side Dummy Syscall Statistics ===
+Total calls:      100001
+Total time:       5644567 ns (5.000644 ms)
+Average time:
+  56 ns
+  0.000000 ms
+  0.000000056 sec
+Min time:
+  37 ns
+  0.000000 ms
+  0.000000037 sec
+Max time:
+  62707 ns
+  0.000062 ms
+  0.000062707 sec
+Calls per second: 17716327 (estimated)
+===========================================
+
+Comparison notes:
+- Kernel timing measures only syscall body execution
+- Excludes user-to-kernel transition overhead
+- More precise than userspace timing
+- Min/Max show timing variance
+=== RUN 4 ===
+=== Option B: Kernel-Side Timing Test ===
+Test calls: 100000
+Syscall number: 470
+
+✓ Kernel statistics reset
+✓ Syscall verification passed (returned 0)
+
+Initial kernel stats:
+=== Kernel-Side Dummy Syscall Statistics ===
+Total calls:      1
+Total time:       60 ns (0.000000 ms)
+Average time:
+  60 ns
+  0.000000 ms
+  0.000000060 sec
+Min time:
+  60 ns
+  0.000000 ms
+  0.000000060 sec
+Max time:
+  60 ns
+  0.000000 ms
+  0.000000060 sec
+Calls per second: 16666666 (estimated)
+===========================================
+
+Running 100000 syscalls...
+  Completed 25000 calls...
+  Completed 50000 calls...
+  Completed 75000 calls...
+  Completed 100000 calls...
+✓ Test completed
+
+Final kernel stats:
+=== Kernel-Side Dummy Syscall Statistics ===
+Total calls:      100001
+Total time:       6210616 ns (6.000210 ms)
+Average time:
+  62 ns
+  0.000000 ms
+  0.000000062 sec
+Min time:
+  38 ns
+  0.000000 ms
+  0.000000038 sec
+Max time:
+  181643 ns
+  0.000181 ms
+  0.000181643 sec
+Calls per second: 16101623 (estimated)
+===========================================
+
+Comparison notes:
+- Kernel timing measures only syscall body execution
+- Excludes user-to-kernel transition overhead
+- More precise than userspace timing
+- Min/Max show timing variance
+=== RUN 5 ===
+=== Option B: Kernel-Side Timing Test ===
+Test calls: 100000
+Syscall number: 470
+
+✓ Kernel statistics reset
+✓ Syscall verification passed (returned 0)
+
+Initial kernel stats:
+=== Kernel-Side Dummy Syscall Statistics ===
+Total calls:      1
+Total time:       165 ns (0.000000 ms)
+Average time:
+  165 ns
+  0.000000 ms
+  0.000000165 sec
+Min time:
+  165 ns
+  0.000000 ms
+  0.000000165 sec
+Max time:
+  165 ns
+  0.000000 ms
+  0.000000165 sec
+Calls per second: 6060606 (estimated)
+===========================================
+
+Running 100000 syscalls...
+  Completed 25000 calls...
+  Completed 50000 calls...
+  Completed 75000 calls...
+  Completed 100000 calls...
+✓ Test completed
+
+Final kernel stats:
+=== Kernel-Side Dummy Syscall Statistics ===
+Total calls:      100001
+Total time:       5934888 ns (5.000934 ms)
+Average time:
+  59 ns
+  0.000000 ms
+  0.000000059 sec
+Min time:
+  36 ns
+  0.000000 ms
+  0.000000036 sec
+Max time:
+  41405 ns
+  0.000041 ms
+  0.000041405 sec
+Calls per second: 16849686 (estimated)
+===========================================
+
+## Option A vs Option B Comparison Analysis
+
+What Option B Measures vs Option A:
+
+| Aspect           | Option A (Userspace)        | Option B (Kernel-Side)      |
+|------------------|----------------------------|----------------------------|
+| Timing location  | Around syscall() call      | Inside syscall body        |
+| Includes         | Full round-trip cost       | Only kernel execution      |
+| Precision        | Limited by userspace timing| High-precision ktime       |
+| Overhead         | Measures timing overhead   | Excludes transition cost   |
+| Variance         | Shows total variance       | Shows kernel-only variance |
+
+### Key Observations:
+
+1. **Timing Difference**: Option A shows ~600-800ns per call, Option B shows ~60-80ns per call
+   - The difference (~540-720ns) represents userspace-to-kernel transition overhead
+   - This includes syscall entry/exit, context switching, and userspace timing overhead
+
+2. **Variance Analysis**: 
+   - Option A: Shows total system variance (kernel + transition + timing)
+   - Option B: Shows only kernel execution variance with min/max tracking
+   - Kernel-side measurements show much lower and more consistent timing
+
+3. **Performance Baseline**: 
+   - Pure kernel syscall execution: ~60-80ns
+   - Full syscall round-trip cost: ~600-800ns
+   - Transition overhead ratio: ~87-90% of total syscall cost
