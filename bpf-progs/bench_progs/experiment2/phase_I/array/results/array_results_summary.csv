@@ -1,0 +1,7 @@
+variant,rate,pct_of_fastest,slowdown_pct,total_calls,avg_interval_calls,num_intervals
+array_multiple_lookups,1321581,100.0,0.0,79294859,660790,120
+array_lookup_only,1315250,99.52,0.48,78915007,657625,120
+array_sequential_update,1308140,98.98,1.02,78488376,654069,120
+array_lookup_update,1297692,98.19,1.81,77861516,648845,120
+array_update_only,1232442,93.26,6.74,73946506,616220,120
+array_random_update,1181838,89.43,10.57,70910262,590918,120
