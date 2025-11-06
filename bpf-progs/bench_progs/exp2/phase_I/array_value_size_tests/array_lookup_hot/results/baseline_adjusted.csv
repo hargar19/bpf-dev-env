@@ -1,0 +1,7 @@
+variant,mean_ns_per_op_raw,mean_ns_per_op_net,pct_over_noop,std_raw,baseline_variant,baseline_mean_ns_per_op
+bench_lookup_1kb,17.172759,3.091968,21.96,0.959979,bench_noop,14.080791
+bench_lookup_256b,17.032519,2.951728,20.96,0.303504,bench_noop,14.080791
+bench_lookup_4kb,17.011707,2.930916,20.81,0.465198,bench_noop,14.080791
+bench_lookup_64b,17.734271,3.653480,25.95,0.704888,bench_noop,14.080791
+bench_lookup_8b,17.787614,3.706823,26.33,2.272486,bench_noop,14.080791
+bench_noop,14.080791,0.000000,0.00,0.348562,bench_noop,14.080791

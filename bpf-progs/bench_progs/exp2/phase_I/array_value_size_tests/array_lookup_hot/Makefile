@@ -1,8 +1,8 @@
 # Makefile for BPF array benchmarks (uses common infrastructure)
 
 CLANG := clang
-# Relative paths to kernel source tree
-KERNEL_ROOT := ../../../../../linux
+# Relative paths to kernel source tree (adjusted for array_value_size_tests subdirectory)
+KERNEL_ROOT := ../../../../../../linux
 LIBBPF_DIR := $(KERNEL_ROOT)/tools/lib/bpf
 BPFTOOL_DIR := $(KERNEL_ROOT)/tools/bpf/bpftool
 BPFTOOL := $(BPFTOOL_DIR)/bpftool
