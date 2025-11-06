@@ -1,7 +1,7 @@
 variant,mean_ns_per_op_raw,mean_ns_per_op_net,pct_over_noop,std_raw,baseline_variant,baseline_mean_ns_per_op
-bench_lookup_1kb,136.470062,121.537528,813.91,8.974051,bench_noop,14.932534
-bench_lookup_256b,45.952352,31.019818,207.73,1.453988,bench_noop,14.932534
-bench_lookup_4kb,603.113065,588.180531,3938.92,14.213950,bench_noop,14.932534
-bench_lookup_64b,32.337332,17.404798,116.56,1.062310,bench_noop,14.932534
-bench_lookup_8b,27.114361,12.181827,81.58,0.814733,bench_noop,14.932534
-bench_noop,14.932534,0.000000,0.00,1.560543,bench_noop,14.932534
+bench_noop,14.170658,0.000000,0.00,0.473981,bench_noop,14.170658
+bench_update_1kb,134.800576,120.629918,851.27,8.342740,bench_noop,14.170658
+bench_update_256b,52.435825,38.265167,270.03,4.967680,bench_noop,14.170658
+bench_update_4kb,635.081813,620.911155,4381.67,20.269194,bench_noop,14.170658
+bench_update_64b,32.483138,18.312480,129.23,2.056130,bench_noop,14.170658
+bench_update_8b,27.011852,12.841194,90.62,0.697086,bench_noop,14.170658

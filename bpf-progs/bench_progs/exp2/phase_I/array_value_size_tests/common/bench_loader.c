@@ -43,29 +43,20 @@ int main(int argc, char **argv)
         goto cleanup;
     }
 
-    // Attach the requested program
-    struct bpf_link *link = NULL;
-    if (strcmp(prog_name, "bench_noop") == 0) {
-        link = bpf_program__attach(skel->progs.bench_noop);
-    } else if (strcmp(prog_name, "bench_lookup") == 0) {
-        link = bpf_program__attach(skel->progs.bench_lookup);
-    } else if (strcmp(prog_name, "bench_lookup_8b") == 0) {
-        link = bpf_program__attach(skel->progs.bench_lookup_8b);
-    } else if (strcmp(prog_name, "bench_lookup_64b") == 0) {
-        link = bpf_program__attach(skel->progs.bench_lookup_64b);
-    } else if (strcmp(prog_name, "bench_lookup_256b") == 0) {
-        link = bpf_program__attach(skel->progs.bench_lookup_256b);
-    } else if (strcmp(prog_name, "bench_lookup_1kb") == 0) {
-        link = bpf_program__attach(skel->progs.bench_lookup_1kb);
-    } else if (strcmp(prog_name, "bench_lookup_4kb") == 0) {
-        link = bpf_program__attach(skel->progs.bench_lookup_4kb);
-    } else {
-        fprintf(stderr, "Unknown program: %s\n", prog_name);
-        fprintf(stderr, "Available: bench_noop, bench_lookup, bench_lookup_{8b,64b,256b,1kb,4kb}\n");
-        err = 1;
+    // Find and attach the requested program by name (works with any skeleton)
+    struct bpf_program *prog = bpf_object__find_program_by_name(skel->obj, prog_name);
+    if (!prog) {
+        fprintf(stderr, "Program '%s' not found in BPF object\n", prog_name);
+        fprintf(stderr, "Available programs in this skeleton:\n");
+        struct bpf_program *p;
+        bpf_object__for_each_program(p, skel->obj) {
+            fprintf(stderr, "  - %s\n", bpf_program__name(p));
+        }
+        err = -ENOENT;
         goto cleanup;
     }
 
+    struct bpf_link *link = bpf_program__attach(prog);
     if (!link) {
         err = -errno;
         fprintf(stderr, "Failed to attach BPF program '%s': %d\n", prog_name, err);

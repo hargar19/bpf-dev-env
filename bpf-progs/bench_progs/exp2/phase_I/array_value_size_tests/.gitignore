@@ -1,0 +1,16 @@
+# Build artifacts
+*.bpf.o
+*.skel.h
+bench_loader
+bench_run
+read_counter
+
+# Result files (keep directory structure but not data)
+results/*.csv
+results/*.png
+results/*.txt
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo

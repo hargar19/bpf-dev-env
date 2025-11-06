@@ -9,7 +9,7 @@ REPEATS=${REPEATS:-100}  # Increased to 100 for paper-style statistics
 WARMUP=${WARMUP:-5}
 CPU_PIN=${CPU_PIN:-0}     # Pin to CPU 0 by default
 
-VARIANTS=(bench_noop bench_lookup_8b bench_lookup_64b bench_lookup_256b bench_lookup_1kb bench_lookup_4kb)
+VARIANTS=(bench_noop bench_update_8b bench_update_64b bench_update_256b bench_update_1kb bench_update_4kb)
 
 echo "[run_all] Paper-style experiment setup"
 echo "[run_all] ========================================"

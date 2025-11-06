@@ -148,8 +148,9 @@ int bench_lookup(void *ctx)
 // Measurement variants: 100 UPDATES per invocation, hot key (0) to keep cache residency
 // Uses bpf_map_update_elem instead of bpf_map_lookup_elem
 // Loop fully unrolled for minimal control overhead.
+
 SEC("tracepoint/syscalls/sys_enter_bpfprof")
-int bench_lookup_8b(void *ctx)
+int bench_update_8b(void *ctx)
 {
     u32 counter_key = 0;
     u64 *count = bpf_map_lookup_elem(&op_counter, &counter_key);
@@ -176,7 +177,7 @@ int bench_lookup_8b(void *ctx)
 }
 
 SEC("tracepoint/syscalls/sys_enter_bpfprof")
-int bench_lookup_64b(void *ctx)
+int bench_update_64b(void *ctx)
 {
     u32 counter_key = 0;
     u64 *count = bpf_map_lookup_elem(&op_counter, &counter_key);
@@ -206,7 +207,7 @@ int bench_lookup_64b(void *ctx)
 }
 
 SEC("tracepoint/syscalls/sys_enter_bpfprof")
-int bench_lookup_256b(void *ctx)
+int bench_update_256b(void *ctx)
 {
     u32 counter_key = 0;
     u64 *count = bpf_map_lookup_elem(&op_counter, &counter_key);
@@ -236,7 +237,7 @@ int bench_lookup_256b(void *ctx)
 }
 
 SEC("tracepoint/syscalls/sys_enter_bpfprof")
-int bench_lookup_1kb(void *ctx)
+int bench_update_1kb(void *ctx)
 {
     u32 counter_key = 0;
     u64 *count = bpf_map_lookup_elem(&op_counter, &counter_key);
@@ -266,7 +267,7 @@ int bench_lookup_1kb(void *ctx)
 }
 
 SEC("tracepoint/syscalls/sys_enter_bpfprof")
-int bench_lookup_4kb(void *ctx)
+int bench_update_4kb(void *ctx)
 {
     u32 counter_key = 0;
     u64 *count = bpf_map_lookup_elem(&op_counter, &counter_key);
